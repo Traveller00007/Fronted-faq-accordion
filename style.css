@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+/* basic reset I use for css for easy calculation*/
+
+html {
+    font-size: 62.5%;
+    font-family: 'Kumbh Sans';
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(0deg, hsl(240, 73%, 65%), hsl(273, 75%, 66%)) no-repeat;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+}
+
+.wrapper {
+    font-family: 'Kumbh Sans', sans-serif;
+    width: min(calc(100% - calc(2 * 2.35rem)), 950px);
+    background-color: white;
+    border-radius: 2rem;
+    display: grid;
+    grid-template-rows: 110px 1fr;
+    margin-block: 10em;
+}
+
+.img__wrapper {
+    position: relative;
+}
+
+.img__wrapper[data-bg="background__img"] {
+    background: url(images/bg-pattern-mobile.svg) no-repeat top center;
+}
+
+.img__wrapper[data-bg="background__img"]::after {
+    content: '';
+    width: 100%;
+    height: 180px;
+    position: absolute;
+    top: -107px;
+    background: url(images/illustration-woman-online-mobile.svg) no-repeat center;
+}
+
+.faq__wrapper {
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.main__title {
+    text-transform: uppercase;
+    color: hsl(238, 29%, 16%);
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.QnA {
+    padding-block: 2rem;
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+}
+
+.questions,
+.answers {
+    font-size: 1.2rem;
+    color: hsl(237, 12%, 33%);
+    font-weight: 400;
+}
+
+.questions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.questions:hover {
+    color: hsl(14, 88%, 65%);
+    cursor: pointer;
+}
+
+/* make questions dark and bold after click */
+.highlight{
+    color: hsl(237, 12%, 33%) !important; 
+    font-weight: 700;
+}
+
+.questions[data-arrow="btn__arrow"]::after {
+    content: '';
+    width: 10px;
+    height: 7px;
+    background: url(images/icon-arrow-down.svg) no-repeat;
+}
+.highlight.questions[data-arrow="btn__arrow"]::after {
+    transform: rotate(180deg);
+}
+
+.answers {
+    margin-top: 1rem;
+}
+
+/* hiding the answers */
+.hidden {
+    display: none;
+}
+
+@media screen and (min-width : 900px) {
+    .wrapper {
+        grid-template-columns: 400px 1fr;
+        grid-template-rows: auto;
+    }
+
+    .img__wrapper[data-bg="background__img"] {
+        background: url(images/illustration-woman-online-desktop.svg) no-repeat 115% 35%, url(images/bg-pattern-desktop.svg) no-repeat 100% 65%;
+    }
+
+    .img__wrapper[data-bg="background__img"]::after {
+        height: 184px;
+        background: url(images/illustration-box-desktop.svg) no-repeat;
+        top: 37%;
+        left: -32%;
+    }
+
+    .faq__wrapper {
+        padding: 5rem 10rem;
+    }
+
+    .main__title {
+        text-align: left;
+    }
+}
